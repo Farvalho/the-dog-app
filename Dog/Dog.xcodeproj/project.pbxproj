@@ -14,6 +14,9 @@
 		8B3B255428D35510006C5591 /* DogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B255328D35510006C5591 /* DogTests.swift */; };
 		8B3B255E28D35510006C5591 /* DogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B255D28D35510006C5591 /* DogUITests.swift */; };
 		8B3B256028D35510006C5591 /* DogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B255F28D35510006C5591 /* DogUITestsLaunchTests.swift */; };
+		8B3B257628D35E89006C5591 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B257528D35E89006C5591 /* Breed.swift */; };
+		8B3B257828D36007006C5591 /* GetBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B257728D36007006C5591 /* GetBreedsUseCase.swift */; };
+		8B3B257A28D36141006C5591 /* SearchBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B257928D36141006C5591 /* SearchBreedsUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		8B3B255928D35510006C5591 /* DogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B3B255D28D35510006C5591 /* DogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogUITests.swift; sourceTree = "<group>"; };
 		8B3B255F28D35510006C5591 /* DogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8B3B257528D35E89006C5591 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
+		8B3B257728D36007006C5591 /* GetBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBreedsUseCase.swift; sourceTree = "<group>"; };
+		8B3B257928D36141006C5591 /* SearchBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBreedsUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				8B3B254228D3550B006C5591 /* DogApp.swift */,
-				8B3B254428D3550B006C5591 /* ContentView.swift */,
-				8B3B254628D35510006C5591 /* Assets.xcassets */,
-				8B3B254828D35510006C5591 /* Preview Content */,
+				8B3B256E28D3564C006C5591 /* Presentation */,
+				8B3B256D28D35647006C5591 /* Domain */,
+				8B3B256C28D3563C006C5591 /* Data */,
 			);
 			path = Dog;
 			sourceTree = "<group>";
@@ -125,6 +131,89 @@
 				8B3B255F28D35510006C5591 /* DogUITestsLaunchTests.swift */,
 			);
 			path = DogUITests;
+			sourceTree = "<group>";
+		};
+		8B3B256C28D3563C006C5591 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8B3B257328D356D7006C5591 /* Repositories */,
+				8B3B257428D356DD006C5591 /* Data sources */,
+				8B3B257B28D361C8006C5591 /* Entities */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8B3B256D28D35647006C5591 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				8B3B257128D356C6006C5591 /* Use cases */,
+				8B3B257228D356CB006C5591 /* Models */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		8B3B256E28D3564C006C5591 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8B3B257028D3565C006C5591 /* Views */,
+				8B3B256F28D35652006C5591 /* Resources */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		8B3B256F28D35652006C5591 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8B3B254628D35510006C5591 /* Assets.xcassets */,
+				8B3B254828D35510006C5591 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8B3B257028D3565C006C5591 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8B3B254428D3550B006C5591 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B3B257128D356C6006C5591 /* Use cases */ = {
+			isa = PBXGroup;
+			children = (
+				8B3B257728D36007006C5591 /* GetBreedsUseCase.swift */,
+				8B3B257928D36141006C5591 /* SearchBreedsUseCase.swift */,
+			);
+			path = "Use cases";
+			sourceTree = "<group>";
+		};
+		8B3B257228D356CB006C5591 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B3B257528D35E89006C5591 /* Breed.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8B3B257328D356D7006C5591 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		8B3B257428D356DD006C5591 /* Data sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Data sources";
+			sourceTree = "<group>";
+		};
+		8B3B257B28D361C8006C5591 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +346,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B3B257628D35E89006C5591 /* Breed.swift in Sources */,
 				8B3B254528D3550B006C5591 /* ContentView.swift in Sources */,
+				8B3B257A28D36141006C5591 /* SearchBreedsUseCase.swift in Sources */,
 				8B3B254328D3550B006C5591 /* DogApp.swift in Sources */,
+				8B3B257828D36007006C5591 /* GetBreedsUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
