@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SearchBreedsUseCase {
-    func perform(query: String) async -> Result<[Breed]?, Error>
+    func perform(_ query: String) async -> Result<[Breed]?, Error>
 }

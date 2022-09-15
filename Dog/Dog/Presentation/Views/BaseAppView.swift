@@ -24,7 +24,6 @@ struct BaseAppView: View {
             
         } //:TabView
         .edgesIgnoringSafeArea(.top)
-        .tint(.accentColor)
     }
 }
 

@@ -19,6 +19,15 @@
 		8B3B257A28D36141006C5591 /* SearchBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B257928D36141006C5591 /* SearchBreedsUseCase.swift */; };
 		8B3B257D28D364C6006C5591 /* BreedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B257C28D364C6006C5591 /* BreedsView.swift */; };
 		8B3B257F28D364D9006C5591 /* SearchBreedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B257E28D364D9006C5591 /* SearchBreedsView.swift */; };
+		8B3B258428D36E2D006C5591 /* NetworkConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B258328D36E2D006C5591 /* NetworkConfigs.swift */; };
+		8B3B258628D36E3C006C5591 /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B258528D36E3C006C5591 /* NetworkEngine.swift */; };
+		8B3B258828D36E5F006C5591 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B258728D36E5F006C5591 /* NetworkRequest.swift */; };
+		8B3B258B28D3719E006C5591 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B258A28D3719D006C5591 /* NetworkError.swift */; };
+		8B3B258D28D371EE006C5591 /* BreedsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B258C28D371EE006C5591 /* BreedsDataSource.swift */; };
+		8B3B258F28D3725D006C5591 /* BreedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B258E28D3725D006C5591 /* BreedEntity.swift */; };
+		8B3B259128D382BB006C5591 /* ImageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B259028D382BB006C5591 /* ImageEntity.swift */; };
+		8B3B259328D3857D006C5591 /* CategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B259228D3857D006C5591 /* CategoryEntity.swift */; };
+		8B3B259528D386B6006C5591 /* BreedsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B259428D386B6006C5591 /* BreedsRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +63,15 @@
 		8B3B257928D36141006C5591 /* SearchBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBreedsUseCase.swift; sourceTree = "<group>"; };
 		8B3B257C28D364C6006C5591 /* BreedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsView.swift; sourceTree = "<group>"; };
 		8B3B257E28D364D9006C5591 /* SearchBreedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBreedsView.swift; sourceTree = "<group>"; };
+		8B3B258328D36E2D006C5591 /* NetworkConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigs.swift; sourceTree = "<group>"; };
+		8B3B258528D36E3C006C5591 /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
+		8B3B258728D36E5F006C5591 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		8B3B258A28D3719D006C5591 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		8B3B258C28D371EE006C5591 /* BreedsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsDataSource.swift; sourceTree = "<group>"; };
+		8B3B258E28D3725D006C5591 /* BreedEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedEntity.swift; sourceTree = "<group>"; };
+		8B3B259028D382BB006C5591 /* ImageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEntity.swift; sourceTree = "<group>"; };
+		8B3B259228D3857D006C5591 /* CategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEntity.swift; sourceTree = "<group>"; };
+		8B3B259428D386B6006C5591 /* BreedsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +161,7 @@
 				8B3B257328D356D7006C5591 /* Repositories */,
 				8B3B257428D356DD006C5591 /* Data sources */,
 				8B3B257B28D361C8006C5591 /* Entities */,
+				8B3B258228D36E18006C5591 /* Network */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -204,6 +223,7 @@
 		8B3B257328D356D7006C5591 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				8B3B259428D386B6006C5591 /* BreedsRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -211,6 +231,7 @@
 		8B3B257428D356DD006C5591 /* Data sources */ = {
 			isa = PBXGroup;
 			children = (
+				8B3B258C28D371EE006C5591 /* BreedsDataSource.swift */,
 			);
 			path = "Data sources";
 			sourceTree = "<group>";
@@ -218,8 +239,30 @@
 		8B3B257B28D361C8006C5591 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				8B3B259028D382BB006C5591 /* ImageEntity.swift */,
+				8B3B258E28D3725D006C5591 /* BreedEntity.swift */,
+				8B3B259228D3857D006C5591 /* CategoryEntity.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		8B3B258228D36E18006C5591 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8B3B258328D36E2D006C5591 /* NetworkConfigs.swift */,
+				8B3B258728D36E5F006C5591 /* NetworkRequest.swift */,
+				8B3B258528D36E3C006C5591 /* NetworkEngine.swift */,
+				8B3B258928D37184006C5591 /* Errors */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8B3B258928D37184006C5591 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				8B3B258A28D3719D006C5591 /* NetworkError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,11 +396,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B3B257F28D364D9006C5591 /* SearchBreedsView.swift in Sources */,
+				8B3B258D28D371EE006C5591 /* BreedsDataSource.swift in Sources */,
+				8B3B259128D382BB006C5591 /* ImageEntity.swift in Sources */,
 				8B3B257628D35E89006C5591 /* Breed.swift in Sources */,
+				8B3B259328D3857D006C5591 /* CategoryEntity.swift in Sources */,
+				8B3B258428D36E2D006C5591 /* NetworkConfigs.swift in Sources */,
+				8B3B259528D386B6006C5591 /* BreedsRepository.swift in Sources */,
 				8B3B257D28D364C6006C5591 /* BreedsView.swift in Sources */,
+				8B3B258F28D3725D006C5591 /* BreedEntity.swift in Sources */,
+				8B3B258828D36E5F006C5591 /* NetworkRequest.swift in Sources */,
 				8B3B254528D3550B006C5591 /* BaseAppView.swift in Sources */,
+				8B3B258628D36E3C006C5591 /* NetworkEngine.swift in Sources */,
 				8B3B257A28D36141006C5591 /* SearchBreedsUseCase.swift in Sources */,
 				8B3B254328D3550B006C5591 /* DogApp.swift in Sources */,
+				8B3B258B28D3719E006C5591 /* NetworkError.swift in Sources */,
 				8B3B257828D36007006C5591 /* GetBreedsUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

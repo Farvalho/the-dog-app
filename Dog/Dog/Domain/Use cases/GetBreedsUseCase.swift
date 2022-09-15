@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GetBreedsUseCase {
-    func perform(limit: Int, page: Int) async -> Result<[Breed], Error>
+    func perform(limit: Int, page: Int, ordered: Bool) async -> Result<[Breed], Error>
 }
