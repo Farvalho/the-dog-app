@@ -34,6 +34,7 @@
 		8B437C8928D4ED6C003241DF /* BreedImageListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B437C8828D4ED6C003241DF /* BreedImageListRow.swift */; };
 		8B437C8E28D4F234003241DF /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B437C8D28D4F234003241DF /* LoadingState.swift */; };
 		8B437C9128D4F315003241DF /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B437C9028D4F315003241DF /* LoadingView.swift */; };
+		8B437C9328D4F870003241DF /* BreedImageGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B437C9228D4F870003241DF /* BreedImageGridItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		8B437C8828D4ED6C003241DF /* BreedImageListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageListRow.swift; sourceTree = "<group>"; };
 		8B437C8D28D4F234003241DF /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		8B437C9028D4F315003241DF /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		8B437C9228D4F870003241DF /* BreedImageGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageGridItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 				8B3B257C28D364C6006C5591 /* BreedImagesView.swift */,
 				8B437C7F28D4ABE5003241DF /* BreedImagesPresenter.swift */,
 				8B437C8828D4ED6C003241DF /* BreedImageListRow.swift */,
+				8B437C9228D4F870003241DF /* BreedImageGridItem.swift */,
 			);
 			path = "Breed images view";
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				8B3B259128D382BB006C5591 /* ImageEntity.swift in Sources */,
 				8B3B257628D35E89006C5591 /* Breed.swift in Sources */,
 				8B3B259328D3857D006C5591 /* CategoryEntity.swift in Sources */,
+				8B437C9328D4F870003241DF /* BreedImageGridItem.swift in Sources */,
 				8B437C8928D4ED6C003241DF /* BreedImageListRow.swift in Sources */,
 				8B3B258428D36E2D006C5591 /* NetworkConfigs.swift in Sources */,
 				8B3B259528D386B6006C5591 /* BreedsRepository.swift in Sources */,

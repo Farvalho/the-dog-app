@@ -11,7 +11,14 @@ struct BreedImagesView: View {
     @StateObject var presenter = BreedImagesPresenter(getBreedsUseCase: DefaultGetBreedsUseCase())
     @State var loadData: Bool = true
     
+    // LazyVGrid column array
+    let vGridColumns = [
+        GridItem(.adaptive(minimum: 150, maximum: 300), spacing: 20, alignment: .center),
+        GridItem(.adaptive(minimum: 150, maximum: 300), spacing: 20, alignment: .center)
+    ]
+    
     func onAppear() {
+        // Helper conditional to prevent onAppear being called twice (https://openradar.appspot.com/FB8820127)
         if loadData == true {
             loadData.toggle()
             
@@ -27,13 +34,27 @@ struct BreedImagesView: View {
                 // Check presenter loading state
                 switch presenter.loadingState {
                 case .idle:
-                    List {
-                        ForEach(presenter.breeds) { breed in
-                            BreedImageListRow(breed: breed)
-                                .padding(.vertical, 4)
-                            
-                        } //:ForEach
-                    } //:List
+                    // Check if presentation mode is grid or list
+                    if presenter.isGrid == true {
+                        ScrollView(.vertical, showsIndicators: false) {
+                            LazyVGrid(columns: vGridColumns) {
+                                ForEach(presenter.breeds) { breed in
+                                    BreedImageGridItem(breed: breed)
+                                        .padding(.bottom, 10)
+                                    
+                                } //:ForEach
+                            } //:LazyVGrid
+                        } //:ScrollView
+                        
+                    } else {
+                        List {
+                            ForEach(presenter.breeds) { breed in
+                                BreedImageListRow(breed: breed)
+                                    .padding(.vertical, 4)
+                                
+                            } //:ForEach
+                        } //:List
+                    }
                     
                 case .loading:
                     LoadingView()

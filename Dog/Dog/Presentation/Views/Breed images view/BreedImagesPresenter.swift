@@ -13,7 +13,7 @@ class BreedImagesPresenter: ObservableObject {
     @Published var isOrdered: Bool = false
     @Published var loadingState: LoadingState = .idle
     private var page: Int = -1
-    private let limit: Int = 5
+    private let limit: Int = 10
     private let getBreedsUseCase: GetBreedsUseCase
     
     init(getBreedsUseCase: GetBreedsUseCase) {

@@ -1,5 +1,5 @@
 //
-//  BreedImageListRow.swift
+//  BreedImageGridItem.swift
 //  Dog
 //
 //  Created by Fábio Carvalho on 16/09/2022.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct BreedImageListRow: View {
+struct BreedImageGridItem: View {
     @Environment(\.colorScheme) var colorScheme
     var breed: Breed
     
     var body: some View {
-        HStack(spacing: 10) {
+        VStack(alignment: .center, spacing: 10) {
             AsyncImage(url: URL(string: breed.imageLink ?? ""),
                        transaction: Transaction(animation: .easeInOut)) { phase in
                 switch phase {
@@ -47,23 +47,25 @@ struct BreedImageListRow: View {
             Text(breed.name)
                 .font(.headline)
                 .fontWeight(.semibold)
-                .multilineTextAlignment(.leading)
-                .frame(minHeight: 150)
-                .padding(.horizontal)
+                .multilineTextAlignment(.center)
+                .frame(minHeight: 40)
+                .frame(maxWidth: 150)
             
-        } //:HStack
+        } //:VStack
     }
 }
 
-struct BreedImageListRow_Previews: PreviewProvider {
+struct BreedImageGridItem_Previews: PreviewProvider {
     static var previews: some View {
-        BreedImageListRow(breed: Breed(id: 1,
-                                       name: "Breed Number One",
-                                       imageLink: "https://cdn2.thedogapi.com/images/H6UCIZJsc.jpg",
-                                       group: "Working",
-                                       category: "Coding",
-                                       origin: "Egypt",
-                                       temperament: "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous")
+        BreedImageGridItem(breed: Breed(id: 1,
+                                        name: "Breed Number One",
+                                        imageLink: "https://cdn2.thedogapi.com/images/H6UCIZJsc.jpg",
+                                        group: "Working",
+                                        category: "Coding",
+                                        origin: "Egypt",
+                                        temperament: "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous")
         )
+        .previewLayout(.sizeThatFits)
+        .padding()
     }
 }
