@@ -24,13 +24,20 @@ struct BreedImagesView: View {
     var body: some View {
         NavigationView {
             VStack {
-                List {
-                    ForEach(presenter.breeds) { breed in
-                        BreedImageListRow(breed: breed)
-                            .padding(.vertical, 4)
-                        
-                    } //:ForEach
-                } //:List
+                // Check presenter loading state
+                switch presenter.loadingState {
+                case .idle:
+                    List {
+                        ForEach(presenter.breeds) { breed in
+                            BreedImageListRow(breed: breed)
+                                .padding(.vertical, 4)
+                            
+                        } //:ForEach
+                    } //:List
+                    
+                case .loading:
+                    LoadingView()
+                }
             } //:VStack
             .navigationBarTitle("The Dog App")
             .onAppear() {
