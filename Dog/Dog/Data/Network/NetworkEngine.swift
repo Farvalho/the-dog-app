@@ -16,7 +16,7 @@ final class NetworkEngine {
         self.session = URLSession(configuration: URLSessionConfiguration.default)
     }
     
-    func execute<T: Decodable>(request: NetworkRequest) async throws -> Result<T, Error> {
+    func perform<T: Decodable>(request: NetworkRequest) async throws -> Result<T, Error> {
         let request = try! self.prepareURLRequest(for: request)
         
         // Try session data task and catch/return raw error
