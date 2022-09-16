@@ -11,8 +11,6 @@ class BreedImagesPresenter: ObservableObject {
     @Published var breeds: [Breed] = []
     @Published var isGrid: Bool = false
     @Published var isOrdered: Bool = false
-    
-    var ordered: Bool = false
     private var page: Int = -1
     private let limit: Int = 5
     private let getBreedsUseCase: GetBreedsUseCase
@@ -25,7 +23,7 @@ class BreedImagesPresenter: ObservableObject {
     func getBreeds() async {
         page += 1
         
-        let result = await getBreedsUseCase.perform(limit: limit, page: page, ordered: ordered)
+        let result = await getBreedsUseCase.perform(limit: limit, page: page, ordered: isOrdered)
         switch result {
         case .success(let breeds):
             self.breeds.append(contentsOf: breeds ?? [])
@@ -33,5 +31,14 @@ class BreedImagesPresenter: ObservableObject {
         case .failure(let error):
             print(error)
         }
+    }
+    
+    @MainActor
+    func getOrderedBreeds() async {
+        // Reset result array and page control var
+        breeds = []
+        page = -1
+        
+        await getBreeds()
     }
 }

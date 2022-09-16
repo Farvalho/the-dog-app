@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct BreedImagesView: View {
-    @Environment(\.colorScheme) var colorScheme
     @StateObject var presenter = BreedImagesPresenter(getBreedsUseCase: DefaultGetBreedsUseCase())
     @State var loadData: Bool = true
     
@@ -27,47 +26,8 @@ struct BreedImagesView: View {
             VStack {
                 List {
                     ForEach(presenter.breeds) { breed in
-                        HStack(spacing: 10) {
-                            AsyncImage(url: URL(string: breed.imageLink ?? ""),
-                                       transaction: Transaction(animation: .easeInOut)) { phase in
-                                switch phase {
-                                case .empty:
-                                    // Loading placeholder view
-                                    ProgressView()
-                                        .frame(width: 150, height: 150)
-                                        .background(colorScheme == .dark ? .black : .white)
-                                        .cornerRadius(8)
-                                    
-                                case .failure:
-                                    // Error view
-                                    Rectangle()
-                                        .frame(width: 150, height: 150)
-                                        .background(.red)
-                                        .cornerRadius(8)
-                                    
-                                case .success(let image):
-                                    // Image has been loaded successfully
-                                    image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 150, height: 150, alignment: .center)
-                                        .cornerRadius(8)
-                                        .transition(.scale(scale: 0.1, anchor: .center))
-                                    
-                                @unknown default:
-                                    EmptyView()
-                                }
-                            } //:AsyncImage
-                            
-                            Text(breed.name)
-                                .font(.headline)
-                                .fontWeight(.semibold)
-                                .multilineTextAlignment(.leading)
-                                .frame(minHeight: 150)
-                                .padding(.horizontal)
-                            
-                        } //: HStack
-                        .padding(.vertical, 4)
+                        BreedImageListRow(breed: breed)
+                            .padding(.vertical, 4)
                         
                     } //:ForEach
                 } //:List
@@ -76,8 +36,14 @@ struct BreedImagesView: View {
             .onAppear() {
                 onAppear()
             }
+            .onChange(of: presenter.isOrdered, perform: { newValue in
+                Task {
+                    await presenter.getOrderedBreeds()
+                }
+            })
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    // Order ascending button
                     Button(action: {
                         presenter.isOrdered.toggle()
                         
@@ -85,6 +51,7 @@ struct BreedImagesView: View {
                         Image(systemName: presenter.isOrdered ? "a.circle.fill" : "a.circle")
                     })
                     
+                    // Toggle list/grid button
                     Button(action: {
                         presenter.isGrid.toggle()
                         

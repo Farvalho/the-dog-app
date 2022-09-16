@@ -31,6 +31,7 @@
 		8B437C8028D4ABE5003241DF /* BreedImagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B437C7F28D4ABE5003241DF /* BreedImagesPresenter.swift */; };
 		8B437C8228D4AC32003241DF /* SearchBreedsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B437C8128D4AC32003241DF /* SearchBreedsPresenter.swift */; };
 		8B437C8528D4DD53003241DF /* FakeGetBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B437C8428D4DD53003241DF /* FakeGetBreedsUseCase.swift */; };
+		8B437C8928D4ED6C003241DF /* BreedImageListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B437C8828D4ED6C003241DF /* BreedImageListRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		8B437C7F28D4ABE5003241DF /* BreedImagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImagesPresenter.swift; sourceTree = "<group>"; };
 		8B437C8128D4AC32003241DF /* SearchBreedsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBreedsPresenter.swift; sourceTree = "<group>"; };
 		8B437C8428D4DD53003241DF /* FakeGetBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeGetBreedsUseCase.swift; sourceTree = "<group>"; };
+		8B437C8828D4ED6C003241DF /* BreedImageListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageListRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +279,7 @@
 			children = (
 				8B3B257C28D364C6006C5591 /* BreedImagesView.swift */,
 				8B437C7F28D4ABE5003241DF /* BreedImagesPresenter.swift */,
+				8B437C8828D4ED6C003241DF /* BreedImageListRow.swift */,
 			);
 			path = "Breed images view";
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				8B3B259128D382BB006C5591 /* ImageEntity.swift in Sources */,
 				8B3B257628D35E89006C5591 /* Breed.swift in Sources */,
 				8B3B259328D3857D006C5591 /* CategoryEntity.swift in Sources */,
+				8B437C8928D4ED6C003241DF /* BreedImageListRow.swift in Sources */,
 				8B3B258428D36E2D006C5591 /* NetworkConfigs.swift in Sources */,
 				8B3B259528D386B6006C5591 /* BreedsRepository.swift in Sources */,
 				8B3B257D28D364C6006C5591 /* BreedImagesView.swift in Sources */,
