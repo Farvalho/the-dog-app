@@ -10,7 +10,7 @@ import SwiftUI
 struct BaseAppView: View {
     var body: some View {
         TabView {
-            BreedsView()
+            BreedImagesView()
                 .tabItem {
                     Image(systemName: "pawprint")
                     Text("Breeds")

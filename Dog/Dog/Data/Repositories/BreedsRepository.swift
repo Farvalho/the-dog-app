@@ -30,7 +30,7 @@ class DefaultBreedsRepository: BreedsRepository {
                      name: imageBreed.name,
                      imageLink: image.url,
                      group: imageBreed.group,
-                     category: image.categories[0].name,
+                     category: image.categories?[0].name,
                      origin: imageBreed.origin,
                      temperament: imageBreed.temperament)
     }

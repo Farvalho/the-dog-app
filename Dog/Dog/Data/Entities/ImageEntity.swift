@@ -8,7 +8,7 @@
 import Foundation
 
 struct ImageEntity: Decodable {
-    var categories: [CategoryEntity]
+    var categories: [CategoryEntity]?
     var breeds: [BreedEntity]
     var url: String
 }

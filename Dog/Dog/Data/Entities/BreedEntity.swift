@@ -10,9 +10,9 @@ import Foundation
 struct BreedEntity: Decodable {
     var id: Int
     var name: String
-    var group: String
-    var origin: String
-    var temperament: String
+    var group: String?
+    var origin: String?
+    var temperament: String?
     
     enum CodingKeys: String, CodingKey {
         case group = "breed_group"
