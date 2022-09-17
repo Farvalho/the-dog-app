@@ -15,9 +15,10 @@ struct BreedImageList: View {
     var body: some View {
         List {
             ForEach(items) { item in
-                BreedImageListRow(breed: item)
-                    .padding(.vertical, 4)
-    
+                NavigationLink(destination: BreedDetailsView(breed: item)) {
+                    BreedImageListRow(breed: item)
+                        .padding(.vertical, 4)
+                } //:NavigationLink
             } //:ForEach
             
             if items.count > 0 {

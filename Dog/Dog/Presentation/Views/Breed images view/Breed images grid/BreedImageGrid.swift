@@ -20,9 +20,10 @@ struct BreedImageGrid: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(columns: vGridColumns) {
                 ForEach(items) { item in
-                    BreedImageGridItem(breed: item)
-                        .padding(.bottom, 10)
-                    
+                    NavigationLink(destination: BreedDetailsView(breed: item)) {
+                        BreedImageGridItem(breed: item)
+                            .padding(.bottom, 10)
+                    } //:NavigationLink
                 } //:ForEach
                 
                 if items.count > 0 {
