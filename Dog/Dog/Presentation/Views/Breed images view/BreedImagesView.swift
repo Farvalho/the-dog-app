@@ -9,18 +9,12 @@ import SwiftUI
 
 struct BreedImagesView: View {
     @StateObject var presenter = BreedImagesPresenter(getBreedsUseCase: DefaultGetBreedsUseCase())
-    @State var loadData: Bool = true
-    
-    // LazyVGrid column array
-    let vGridColumns = [
-        GridItem(.adaptive(minimum: 150, maximum: 300), spacing: 20, alignment: .center),
-        GridItem(.adaptive(minimum: 150, maximum: 300), spacing: 20, alignment: .center)
-    ]
+    @State var initialLoad: Bool = true
     
     func onAppear() {
-        // Helper conditional to prevent onAppear being called twice (https://openradar.appspot.com/FB8820127)
-        if loadData == true {
-            loadData.toggle()
+        // Helper conditional to prevent onAppear being called twice when using tab bar (https://openradar.appspot.com/FB8820127)
+        if initialLoad == true {
+            initialLoad.toggle()
             
             Task {
                 await presenter.getBreeds()
@@ -36,24 +30,20 @@ struct BreedImagesView: View {
                 case .idle:
                     // Check if presentation mode is grid or list
                     if presenter.isGrid == true {
-                        ScrollView(.vertical, showsIndicators: false) {
-                            LazyVGrid(columns: vGridColumns) {
-                                ForEach(presenter.breeds) { breed in
-                                    BreedImageGridItem(breed: breed)
-                                        .padding(.bottom, 10)
-                                    
-                                } //:ForEach
-                            } //:LazyVGrid
-                        } //:ScrollView
+                        BreedImageGrid(items: $presenter.breeds,
+                                       loadsMore: $presenter.hasMorePages) {
+                            Task {
+                                await presenter.getBreeds()
+                            }
+                        }
                         
                     } else {
-                        List {
-                            ForEach(presenter.breeds) { breed in
-                                BreedImageListRow(breed: breed)
-                                    .padding(.vertical, 4)
-                                
-                            } //:ForEach
-                        } //:List
+                        BreedImageList(items: $presenter.breeds,
+                                       loadsMore: $presenter.hasMorePages) {
+                            Task {
+                                await presenter.getBreeds()
+                            }
+                        }
                     }
                     
                 case .loading:
@@ -61,10 +51,10 @@ struct BreedImagesView: View {
                 }
             } //:VStack
             .navigationBarTitle("The Dog App")
-            .onAppear() {
+            .onAppear {
                 onAppear()
             }
-            .onChange(of: presenter.isOrdered, perform: { newValue in
+            .onChange(of: presenter.isOrdered, perform: { _ in
                 Task {
                     await presenter.getOrderedBreeds()
                 }
