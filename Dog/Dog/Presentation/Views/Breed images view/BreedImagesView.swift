@@ -27,28 +27,37 @@ struct BreedImagesView: View {
             VStack {
                 // Check presenter loading state
                 switch presenter.loadingState {
-                case .idle:
-                    // Check if presentation mode is grid or list
-                    if presenter.isGrid == true {
-                        BreedImageGrid(items: $presenter.breeds,
-                                       loadsMore: $presenter.hasMorePages) {
-                            Task {
-                                await presenter.getBreeds()
-                            }
-                        }
-                        
-                    } else {
-                        BreedImageList(items: $presenter.breeds,
-                                       loadsMore: $presenter.hasMorePages) {
-                            Task {
-                                await presenter.getBreeds()
-                            }
-                        }
-                    }
-                    
                 case .loading:
                     LoadingView()
+                    
+                case .idle:
+                    // Check for error state and present error view
+                    if presenter.errorMessage != nil {
+                        Text(presenter.errorMessage!)
+                            .padding(.top, 50)
+                        Spacer()
+                        
+                    } else {
+                        // Check if presentation mode is grid or list
+                        if presenter.isGrid == true {
+                            BreedImageGrid(items: $presenter.breeds,
+                                           loadsMore: $presenter.hasMorePages) {
+                                Task {
+                                    await presenter.getBreeds()
+                                }
+                            } //: BreedImageGrid
+                            
+                        } else {
+                            BreedImageList(items: $presenter.breeds,
+                                           loadsMore: $presenter.hasMorePages) {
+                                Task {
+                                    await presenter.getBreeds()
+                                }
+                            } //: BreedImageList
+                        }
+                    }
                 }
+                
             } //:VStack
             .navigationBarTitle("The Dog App")
             .onAppear {

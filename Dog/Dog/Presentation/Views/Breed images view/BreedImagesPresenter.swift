@@ -13,6 +13,7 @@ class BreedImagesPresenter: ObservableObject {
     @Published var isOrdered: Bool = false
     @Published var hasMorePages: Bool = false
     @Published var loadingState: LoadingState = .idle
+    @Published var errorMessage: String?
     private let getBreedsUseCase: GetBreedsUseCase
     private let pageLimit: Int = 5 // arbitrary value, this could be API output
     private let limit: Int = 10
@@ -40,8 +41,16 @@ class BreedImagesPresenter: ObservableObject {
             page += 1
             self.breeds.append(contentsOf: breeds ?? [])
             
+            // Control "no results" error state
+            if self.breeds.count == 0 {
+                errorMessage = "There are no dogs here."
+            } else {
+                errorMessage = nil
+            }
+            
         case .failure(let error):
             print(error)
+            self.errorMessage = error.localizedDescription
         }
     }
     

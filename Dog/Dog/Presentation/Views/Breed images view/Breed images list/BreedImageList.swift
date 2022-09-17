@@ -43,22 +43,7 @@ struct BreedImageList: View {
 
 struct BreedImageList_Previews: PreviewProvider {
     static var previews: some View {
-        BreedImageList(items: .constant([
-            Breed(id: 1,
-                  name: "Breed Number One",
-                  imageLink: "https://cdn2.thedogapi.com/images/H6UCIZJsc.jpg",
-                  group: "Working",
-                  category: "Coding",
-                  origin: "Egypt",
-                  temperament: "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous"),
-            
-            Breed(id: 2,
-                  name: "Breed Number Two",
-                  imageLink: "https://cdn2.thedogapi.com/images/H6UCIZJsc.jpg",
-                  group: "Working",
-                  category: "Coding",
-                  origin: "Egypt",
-                  temperament: "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous")
-        ]), loadsMore: .constant(true))
+        BreedImageList(items: .constant(
+            BreedImagesPresenter(getBreedsUseCase: FakeGetBreedsUseCase()).breeds), loadsMore: .constant(true))
     }
 }

@@ -57,14 +57,7 @@ struct BreedImageGridItem: View {
 
 struct BreedImageGridItem_Previews: PreviewProvider {
     static var previews: some View {
-        BreedImageGridItem(breed: Breed(id: 1,
-                                        name: "Breed Number One",
-                                        imageLink: "https://cdn2.thedogapi.com/images/H6UCIZJsc.jpg",
-                                        group: "Working",
-                                        category: "Coding",
-                                        origin: "Egypt",
-                                        temperament: "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous")
-        )
+        BreedImageGridItem(breed: BreedImagesPresenter(getBreedsUseCase: FakeGetBreedsUseCase()).breeds[0])
         .previewLayout(.sizeThatFits)
         .padding()
     }

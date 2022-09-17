@@ -57,13 +57,8 @@ struct BreedImageListRow: View {
 
 struct BreedImageListRow_Previews: PreviewProvider {
     static var previews: some View {
-        BreedImageListRow(breed: Breed(id: 1,
-                                       name: "Breed Number One",
-                                       imageLink: "https://cdn2.thedogapi.com/images/H6UCIZJsc.jpg",
-                                       group: "Working",
-                                       category: "Coding",
-                                       origin: "Egypt",
-                                       temperament: "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous")
-        )
+        BreedImageListRow(breed: BreedImagesPresenter(getBreedsUseCase: FakeGetBreedsUseCase()).breeds[0])
+            .previewLayout(.sizeThatFits)
+            .padding()
     }
 }
