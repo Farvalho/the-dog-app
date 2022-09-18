@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G83" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Breed" representedClassName="BreedCoreDataEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="group" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="origin" optional="YES" attributeType="String"/>
+        <attribute name="temperament" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Category" representedClassName="CategoryCoreDataEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+    </entity>
+    <entity name="Image" representedClassName="ImageCoreDataEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="url" attributeType="String" defaultValueString=""/>
+        <relationship name="breeds" toMany="YES" deletionRule="Nullify" destinationEntity="Breed"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category"/>
+    </entity>
+    <elements>
+        <element name="Breed" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="Category" positionX="-54" positionY="27" width="128" height="44"/>
+        <element name="Image" positionX="-36" positionY="36" width="128" height="88"/>
+    </elements>
+</model>
