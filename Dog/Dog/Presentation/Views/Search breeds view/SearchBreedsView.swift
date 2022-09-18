@@ -8,13 +8,50 @@
 import SwiftUI
 
 struct SearchBreedsView: View {
+    @StateObject var presenter = SearchBreedsPresenter(searchBreedsUseCase: DefaultSearchBreedsUseCase())
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                // Check presenter loading state
+                switch presenter.loadingState {
+                case .loading:
+                    LoadingView()
+                    
+                case .idle:
+                    // Check for error state and present error view
+                    if presenter.errorMessage != nil {
+                        Text(presenter.errorMessage!)
+                            .padding(.top, 50)
+                        Spacer()
+                        
+                    } else {
+                        List {
+                            ForEach(presenter.breeds) { item in
+                                NavigationLink(destination: BreedDetailsView(breed: item)) {
+                                    SearchBreedsListRow(breed: item)
+                                        .padding(.vertical, 4)
+                                } //:NavigationLink
+                            } //:ForEach
+                        } //:List
+                    }
+                }
+            } //:VStack
+            .navigationTitle("The Dog App")
+            .navigationBarTitleDisplayMode(.inline)
+            .searchable(text: $presenter.searchQuery, placement: .navigationBarDrawer, prompt: "Search a breed by its name...")
+            .onSubmit(of: .search) {
+                Task {
+                    await presenter.searchBreeds()
+                }
+            }
+            
+        } //:NavigationView
     }
 }
 
 struct SearchBreedsView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBreedsView()
+        SearchBreedsView(presenter: SearchBreedsPresenter(searchBreedsUseCase: FakeSearchBreedsUseCase()))
     }
 }

@@ -31,6 +31,8 @@
 		8B3B259128D382BB006C5591 /* ImageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B259028D382BB006C5591 /* ImageEntity.swift */; };
 		8B3B259328D3857D006C5591 /* CategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B259228D3857D006C5591 /* CategoryEntity.swift */; };
 		8B3B259528D386B6006C5591 /* BreedsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B259428D386B6006C5591 /* BreedsRepository.swift */; };
+		8B3CF8B228D739D0000143DA /* FakeSearchBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3CF8B128D739D0000143DA /* FakeSearchBreedsUseCase.swift */; };
+		8B3CF8B428D73B54000143DA /* SearchBreedsListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3CF8B328D73B54000143DA /* SearchBreedsListRow.swift */; };
 		8B437C8028D4ABE5003241DF /* BreedImagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B437C7F28D4ABE5003241DF /* BreedImagesPresenter.swift */; };
 		8B437C8228D4AC32003241DF /* SearchBreedsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B437C8128D4AC32003241DF /* SearchBreedsPresenter.swift */; };
 		8B437C8528D4DD53003241DF /* FakeGetBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B437C8428D4DD53003241DF /* FakeGetBreedsUseCase.swift */; };
@@ -87,6 +89,8 @@
 		8B3B259028D382BB006C5591 /* ImageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEntity.swift; sourceTree = "<group>"; };
 		8B3B259228D3857D006C5591 /* CategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEntity.swift; sourceTree = "<group>"; };
 		8B3B259428D386B6006C5591 /* BreedsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsRepository.swift; sourceTree = "<group>"; };
+		8B3CF8B128D739D0000143DA /* FakeSearchBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSearchBreedsUseCase.swift; sourceTree = "<group>"; };
+		8B3CF8B328D73B54000143DA /* SearchBreedsListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBreedsListRow.swift; sourceTree = "<group>"; };
 		8B437C7F28D4ABE5003241DF /* BreedImagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImagesPresenter.swift; sourceTree = "<group>"; };
 		8B437C8128D4AC32003241DF /* SearchBreedsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBreedsPresenter.swift; sourceTree = "<group>"; };
 		8B437C8428D4DD53003241DF /* FakeGetBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeGetBreedsUseCase.swift; sourceTree = "<group>"; };
@@ -318,6 +322,7 @@
 			children = (
 				8B3B257E28D364D9006C5591 /* SearchBreedsView.swift */,
 				8B437C8128D4AC32003241DF /* SearchBreedsPresenter.swift */,
+				8B3CF8B328D73B54000143DA /* SearchBreedsListRow.swift */,
 			);
 			path = "Search breeds view";
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				8B437C8428D4DD53003241DF /* FakeGetBreedsUseCase.swift */,
+				8B3CF8B128D739D0000143DA /* FakeSearchBreedsUseCase.swift */,
 			);
 			path = "Fake data";
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 				8B3B258F28D3725D006C5591 /* BreedEntity.swift in Sources */,
 				8B3B258828D36E5F006C5591 /* NetworkRequest.swift in Sources */,
 				8B3B254528D3550B006C5591 /* BaseAppView.swift in Sources */,
+				8B3CF8B228D739D0000143DA /* FakeSearchBreedsUseCase.swift in Sources */,
 				8B3B258628D36E3C006C5591 /* NetworkEngine.swift in Sources */,
 				8B437C8E28D4F234003241DF /* LoadingState.swift in Sources */,
 				8B437C8028D4ABE5003241DF /* BreedImagesPresenter.swift in Sources */,
@@ -523,6 +530,7 @@
 				8B85ABE128D5FE2000E3BF26 /* BreedImageGrid.swift in Sources */,
 				8B3B258B28D3719E006C5591 /* NetworkError.swift in Sources */,
 				8B3B257828D36007006C5591 /* GetBreedsUseCase.swift in Sources */,
+				8B3CF8B428D73B54000143DA /* SearchBreedsListRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
