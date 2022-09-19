@@ -9,9 +9,8 @@ import CoreData
 
 protocol CoreDataWrapper {
     func getContext() -> NSManagedObjectContext
-    func getData(entityName: String) throws -> [NSManagedObject]
     func getData(entityName: String, predicate: NSPredicate) throws -> [NSManagedObject]
-    func getData(entityName: String, predicate: NSPredicate, limit: Int) throws -> [NSManagedObject]
+    func getData(entityName: String, limit: Int) throws -> [NSManagedObject]
     func saveEntity(entity: NSManagedObject) throws
     func saveEntities(entities: [NSManagedObject]) throws
     func deleteEntity(entity: NSManagedObject) throws
@@ -42,23 +41,18 @@ class PersistenceEngine: CoreDataWrapper {
         return container.viewContext
     }
     
-    func getData(entityName: String) throws -> [NSManagedObject] {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
-        let entities = try container.viewContext.fetch(fetchRequest)
-        return entities
-    }
-    
     func getData(entityName: String, predicate: NSPredicate) throws -> [NSManagedObject] {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
         fetchRequest.predicate = predicate
+        
         let entities = try container.viewContext.fetch(fetchRequest)
         return entities
     }
     
-    func getData(entityName: String, predicate: NSPredicate, limit: Int) throws -> [NSManagedObject] {
+    func getData(entityName: String, limit: Int) throws -> [NSManagedObject] {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
-        fetchRequest.predicate = predicate
         fetchRequest.fetchLimit = limit
+        
         let entities = try container.viewContext.fetch(fetchRequest)
         return entities
     }

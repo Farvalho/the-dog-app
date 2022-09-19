@@ -9,6 +9,14 @@ import SwiftUI
 
 @main
 struct DogApp: App {
+    
+//    // On app launch
+//    init() {
+//        UserDefaults.standard.register(defaults: [
+//            "isOfflineMode": false
+//        ])
+//    }
+//    
     var body: some Scene {
         WindowGroup {
             BaseAppView()
