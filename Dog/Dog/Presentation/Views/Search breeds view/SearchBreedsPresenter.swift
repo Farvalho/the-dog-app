@@ -27,7 +27,7 @@ class SearchBreedsPresenter: ObservableObject {
         // Handle result and update published vars
         switch result {
         case .success(let breeds):
-            self.breeds.append(contentsOf: breeds ?? [])
+            self.breeds = breeds ?? []
             
             // Control "no results" error state
             if self.breeds.count == 0 {

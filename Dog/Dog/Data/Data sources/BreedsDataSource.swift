@@ -44,7 +44,7 @@ class DefaultBreedsDataSource: BreedsDataSource {
         )
         
         // Perform request and save to local data source
-        let result = try! await networkEngine.perform(request: request) as Result<[ImageEntity]?, Error>
+        let result = await networkEngine.perform(request: request) as Result<[ImageEntity]?, Error>
         switch result {
         case .success(let images):
             if images != nil {
@@ -71,7 +71,7 @@ class DefaultBreedsDataSource: BreedsDataSource {
         )
         
         // Perform request and save to local data source
-        let result = try! await networkEngine.perform(request: request) as Result<[BreedEntity]?, Error>
+        let result = await networkEngine.perform(request: request) as Result<[BreedEntity]?, Error>
         switch result {
         case .success(let breeds):
             if breeds != nil {

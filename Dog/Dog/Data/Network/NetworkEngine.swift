@@ -16,13 +16,21 @@ final class NetworkEngine {
         self.session = URLSession(configuration: URLSessionConfiguration.default)
     }
     
-    func perform<T: Decodable>(request: NetworkRequest) async throws -> Result<T, Error> {
-        let request = try! self.prepareURLRequest(for: request)
+    func perform<T: Decodable>(request: NetworkRequest) async -> Result<T, Error> {
+        var urlRequest: URLRequest
+        
+        //Try preparing the URL request and catch/return error
+        do {
+            urlRequest = try self.prepareURLRequest(for: request)
+            
+        } catch {
+            return .failure(error)
+        }
         
         // Try session data task and catch/return raw error
         do {
             // Ignoring returned URLResponse, might be needed in future implementations
-            let (data, _) = try await session.data(for: request)
+            let (data, _) = try await session.data(for: urlRequest)
             
             // Try decoding JSON data response and catch error
             do {
