@@ -23,6 +23,8 @@ struct SearchBreedsView: View {
                     if presenter.errorMessage != nil {
                         Text(presenter.errorMessage!)
                             .padding(.top, 50)
+                            .padding(.horizontal, 20)
+                            .multilineTextAlignment(.center)
                         Spacer()
                         
                     } else {
