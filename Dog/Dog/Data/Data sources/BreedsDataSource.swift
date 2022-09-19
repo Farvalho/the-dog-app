@@ -42,7 +42,7 @@ class DefaultBreedsDataSource: BreedsDataSource {
         )
         
         // Perform request and immediately return the result
-        return try! await networkEngine.perform(request: request) as Result<[ImageEntity]?, Error>
+        return await networkEngine.perform(request: request) as Result<[ImageEntity]?, Error>
     }
     
     func searchBreeds(_ query: String) async -> Result<[BreedEntity]?, Error> {
@@ -57,7 +57,7 @@ class DefaultBreedsDataSource: BreedsDataSource {
         )
         
         // Perform request and immediately return the result
-        return try! await networkEngine.perform(request: request) as Result<[BreedEntity]?, Error>
+        return await networkEngine.perform(request: request) as Result<[BreedEntity]?, Error>
     }
     
 }
