@@ -13,9 +13,9 @@ struct BreedDetailsView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .center, spacing: 10) {
-                VStack(alignment: .center, spacing: 10) {
+                VStack(alignment: .center, spacing: 20) {
                     if breed.imageLink != nil {
-                        BreedAsyncImage(imageLink: breed.imageLink)
+                        BreedAsyncImage(imageLink: breed.imageLink, dimensions:(width: 300, height: 300))
                         
                     } else {
                         Image(systemName: "pawprint")
@@ -28,7 +28,7 @@ struct BreedDetailsView: View {
                     Text(breed.name.uppercased())
                         .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(.accentColor)
+                        .foregroundColor(.indigo)
                         .multilineTextAlignment(.center)
                     
                 } //:VStack

@@ -26,14 +26,22 @@ struct SearchBreedsView: View {
                         Spacer()
                         
                     } else {
-                        List {
-                            ForEach(presenter.breeds) { item in
-                                NavigationLink(destination: BreedDetailsView(breed: item)) {
-                                    SearchBreedsListRow(breed: item)
-                                        .padding(.vertical, 4)
-                                } //:NavigationLink
-                            } //:ForEach
-                        } //:List
+                        // Placeholder if empty list
+                        if presenter.breeds.count == 0 {
+                            Text("This is where results will show!")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                            
+                        } else {
+                            List {
+                                ForEach(presenter.breeds) { item in
+                                    NavigationLink(destination: BreedDetailsView(breed: item)) {
+                                        SearchBreedsListRow(breed: item)
+                                            .padding(.vertical, 4)
+                                    } //:NavigationLink
+                                } //:ForEach
+                            } //:List
+                        }
                     }
                 }
             } //:VStack
