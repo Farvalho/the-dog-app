@@ -90,6 +90,7 @@ struct BreedImagesView: View {
                 } //:ToolbarItemGroup
             } //:toolbar
         } //:NavigationView
+        .navigationViewStyle(.stack)
     }
 }
 

@@ -57,6 +57,7 @@ struct SearchBreedsView: View {
             }
             
         } //:NavigationView
+        .navigationViewStyle(.stack)
     }
 }
 

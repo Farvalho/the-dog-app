@@ -48,6 +48,8 @@ struct BreedDetailsView: View {
                         
                     } //:HStack
                 } //: GroupBox
+                .frame(maxWidth: 720)
+                
             } //:VStack
         } //:ScrollView
     }
