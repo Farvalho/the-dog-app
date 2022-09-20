@@ -8,15 +8,18 @@
 import SwiftUI
 
 class BreedImagesPresenter: ObservableObject {
+    @AppStorage("isOfflineMode") var isOfflineMode: Bool = false
     @Published var breeds: [Breed] = []
     @Published var isGrid: Bool = false
     @Published var isOrdered: Bool = false
     @Published var hasMorePages: Bool = false
     @Published var loadingState: LoadingState = .idle
     @Published var errorMessage: String?
+    @Published var isOfflineAlertPresenting = false
     private let getBreedsUseCase: GetBreedsUseCase
     private let pageLimit: Int = 5 // arbitrary value, this could be API output
     private let limit: Int = 10
+    private var askedForOffline = false
     private var page: Int = 0 {
         didSet {
             hasMorePages = !(page == pageLimit)
@@ -49,7 +52,19 @@ class BreedImagesPresenter: ObservableObject {
             }
             
         case .failure(let error):
-            print(error)
+            // Check for no connection error
+            if let networkError = error as? NetworkError, networkError == .connectionError {
+                // Only ask for offline mode once
+                if !askedForOffline {
+                    askedForOffline = true
+                    isOfflineAlertPresenting = true
+                    return
+                }
+                
+                self.errorMessage = "Couldn't load your data. Please check your internet connection."
+                return
+            }
+            
             self.errorMessage = error.localizedDescription
         }
     }

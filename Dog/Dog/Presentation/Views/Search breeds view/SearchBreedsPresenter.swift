@@ -8,11 +8,14 @@
 import SwiftUI
 
 class SearchBreedsPresenter: ObservableObject {
+    @AppStorage("isOfflineMode") var isOfflineMode: Bool = false
     @Published var breeds: [Breed] = []
     @Published var searchQuery: String = ""
     @Published var loadingState: LoadingState = .idle
     @Published var errorMessage: String?
+    @Published var isOfflineAlertPresenting = false
     private let searchBreedsUseCase: SearchBreedsUseCase
+    private var askedForOffline = false
     
     init(searchBreedsUseCase: SearchBreedsUseCase) {
         self.searchBreedsUseCase = searchBreedsUseCase
@@ -37,7 +40,19 @@ class SearchBreedsPresenter: ObservableObject {
             }
             
         case .failure(let error):
-            print(error)
+            // Check for no connection error
+            if let networkError = error as? NetworkError, networkError == .connectionError {
+                // Only ask for offline mode once
+                if !askedForOffline {
+                    askedForOffline = true
+                    isOfflineAlertPresenting = true
+                    return
+                }
+                
+                self.errorMessage = "Couldn't load your data. Please check your internet connection."
+                return
+            }
+            
             self.errorMessage = error.localizedDescription
         }
     }

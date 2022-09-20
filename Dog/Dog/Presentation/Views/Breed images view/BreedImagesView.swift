@@ -15,7 +15,6 @@ struct BreedImagesView: View {
         // Helper conditional to prevent onAppear being called twice when using tab bar (https://openradar.appspot.com/FB8820127)
         if initialLoad == true {
             initialLoad.toggle()
-            
             Task {
                 await presenter.getBreeds()
             }
@@ -65,11 +64,37 @@ struct BreedImagesView: View {
             .onAppear {
                 onAppear()
             }
+            // List ordering toggle observer
             .onChange(of: presenter.isOrdered, perform: { _ in
                 Task {
                     await presenter.getOrderedBreeds()
                 }
             })
+            // Offline mode alert
+            .alert("You appear to be offline", isPresented: $presenter.isOfflineAlertPresenting, actions: {
+                Button("Cancel") {
+                    // Try to load the data without offline mode
+                    presenter.isOfflineAlertPresenting.toggle()
+                    presenter.isOfflineMode = false
+                    
+                    Task {
+                        await presenter.getBreeds()
+                    }
+                }
+                
+                Button("Offline mode") {
+                    // Initiate offline mode and load data
+                    presenter.isOfflineAlertPresenting.toggle()
+                    presenter.isOfflineMode = true
+                    
+                    Task {
+                        await presenter.getBreeds()
+                    }
+                }
+            }, message: {
+                Text("Would you like to continue with any available outdated data?")
+            })
+            // Navigation bar toolbar
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     // Order ascending button

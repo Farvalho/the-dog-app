@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B33F10B28D767E8009EE4C7 /* LocalBreedsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33F10A28D767E8009EE4C7 /* LocalBreedsDataSource.swift */; };
+		8B33F10E28D768D5009EE4C7 /* BreedsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B33F10C28D768D5009EE4C7 /* BreedsDataModel.xcdatamodeld */; };
+		8B33F11128D76969009EE4C7 /* PersistenceEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33F11028D76969009EE4C7 /* PersistenceEngine.swift */; };
 		8B0FC2BF28DA18510029CC1B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B0FC2BE28DA18510029CC1B /* Launch Screen.storyboard */; };
 		8B391DCE28D674D900F6F4D9 /* BreedDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B391DCD28D674D900F6F4D9 /* BreedDetailsView.swift */; };
 		8B391DD228D677FE00F6F4D9 /* BreedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B391DD128D677FE00F6F4D9 /* BreedAsyncImage.swift */; };
@@ -63,6 +66,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B33F10A28D767E8009EE4C7 /* LocalBreedsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBreedsDataSource.swift; sourceTree = "<group>"; };
+		8B33F10D28D768D5009EE4C7 /* BreedsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BreedsDataModel.xcdatamodel; sourceTree = "<group>"; };
+		8B33F11028D76969009EE4C7 /* PersistenceEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceEngine.swift; sourceTree = "<group>"; };
 		8B0FC2BE28DA18510029CC1B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8B391DCD28D674D900F6F4D9 /* BreedDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailsView.swift; sourceTree = "<group>"; };
 		8B391DD128D677FE00F6F4D9 /* BreedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedAsyncImage.swift; sourceTree = "<group>"; };
@@ -129,6 +135,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B33F10F28D768F7009EE4C7 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8B33F11028D76969009EE4C7 /* PersistenceEngine.swift */,
+				8B33F10C28D768D5009EE4C7 /* BreedsDataModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		8B391DCC28D674BF00F6F4D9 /* Breed details view */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +216,7 @@
 				8B3B257428D356DD006C5591 /* Data sources */,
 				8B3B257B28D361C8006C5591 /* Entities */,
 				8B3B258228D36E18006C5591 /* Network */,
+				8B33F10F28D768F7009EE4C7 /* CoreData */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -276,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				8B3B258C28D371EE006C5591 /* BreedsDataSource.swift */,
+				8B33F10A28D767E8009EE4C7 /* LocalBreedsDataSource.swift */,
 			);
 			path = "Data sources";
 			sourceTree = "<group>";
@@ -506,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B3B257F28D364D9006C5591 /* SearchBreedsView.swift in Sources */,
+				8B33F10B28D767E8009EE4C7 /* LocalBreedsDataSource.swift in Sources */,
 				8B437C8528D4DD53003241DF /* FakeGetBreedsUseCase.swift in Sources */,
 				8B437C8228D4AC32003241DF /* SearchBreedsPresenter.swift in Sources */,
 				8B391DD228D677FE00F6F4D9 /* BreedAsyncImage.swift in Sources */,
@@ -523,7 +541,9 @@
 				8B3B258F28D3725D006C5591 /* BreedEntity.swift in Sources */,
 				8B3B258828D36E5F006C5591 /* NetworkRequest.swift in Sources */,
 				8B3B254528D3550B006C5591 /* BaseAppView.swift in Sources */,
+				8B33F11128D76969009EE4C7 /* PersistenceEngine.swift in Sources */,
 				8B3CF8B228D739D0000143DA /* FakeSearchBreedsUseCase.swift in Sources */,
+				8B33F10E28D768D5009EE4C7 /* BreedsDataModel.xcdatamodeld in Sources */,
 				8B3B258628D36E3C006C5591 /* NetworkEngine.swift in Sources */,
 				8B437C8E28D4F234003241DF /* LoadingState.swift in Sources */,
 				8B437C8028D4ABE5003241DF /* BreedImagesPresenter.swift in Sources */,
@@ -861,6 +881,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8B33F10C28D768D5009EE4C7 /* BreedsDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8B33F10D28D768D5009EE4C7 /* BreedsDataModel.xcdatamodel */,
+			);
+			currentVersion = 8B33F10D28D768D5009EE4C7 /* BreedsDataModel.xcdatamodel */;
+			path = BreedsDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8B3B253728D3550B006C5591 /* Project object */;
 }
