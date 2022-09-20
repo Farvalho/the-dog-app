@@ -29,11 +29,13 @@ class PersistenceEngine: CoreDataWrapper {
     }
     
     func save() throws {
-        do {
-            try container.viewContext.save()
-            
-        } catch {
-            print("Error saving context: \(error)")
+        container.performBackgroundTask { context in
+            do {
+                try context.save()
+                
+            } catch {
+                print("Error saving context: \(error)")
+            }
         }
     }
     
