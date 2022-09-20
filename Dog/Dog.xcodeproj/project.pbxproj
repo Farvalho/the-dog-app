@@ -45,7 +45,6 @@
 		8B437C9328D4F870003241DF /* BreedImageGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B437C9228D4F870003241DF /* BreedImageGridItem.swift */; };
 		8B85ABDF28D5E40700E3BF26 /* BreedImageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B85ABDE28D5E40700E3BF26 /* BreedImageList.swift */; };
 		8B85ABE128D5FE2000E3BF26 /* BreedImageGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B85ABE028D5FE2000E3BF26 /* BreedImageGrid.swift */; };
-		8B9FC81928D8D1D30071D359 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9FC81828D8D1D30071D359 /* NetworkMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,7 +106,6 @@
 		8B437C9228D4F870003241DF /* BreedImageGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageGridItem.swift; sourceTree = "<group>"; };
 		8B85ABDE28D5E40700E3BF26 /* BreedImageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageList.swift; sourceTree = "<group>"; };
 		8B85ABE028D5FE2000E3BF26 /* BreedImageGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageGrid.swift; sourceTree = "<group>"; };
-		8B9FC81828D8D1D30071D359 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,7 +310,6 @@
 				8B3B258328D36E2D006C5591 /* NetworkConfigs.swift */,
 				8B3B258728D36E5F006C5591 /* NetworkRequest.swift */,
 				8B3B258528D36E3C006C5591 /* NetworkEngine.swift */,
-				8B9FC81828D8D1D30071D359 /* NetworkMonitor.swift */,
 				8B3B258928D37184006C5591 /* Errors */,
 			);
 			path = Network;
@@ -546,7 +543,6 @@
 				8B3B258628D36E3C006C5591 /* NetworkEngine.swift in Sources */,
 				8B437C8E28D4F234003241DF /* LoadingState.swift in Sources */,
 				8B437C8028D4ABE5003241DF /* BreedImagesPresenter.swift in Sources */,
-				8B9FC81928D8D1D30071D359 /* NetworkMonitor.swift in Sources */,
 				8B3B257A28D36141006C5591 /* SearchBreedsUseCase.swift in Sources */,
 				8B85ABDF28D5E40700E3BF26 /* BreedImageList.swift in Sources */,
 				8B3B254328D3550B006C5591 /* DogApp.swift in Sources */,

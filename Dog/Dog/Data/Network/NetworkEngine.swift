@@ -45,6 +45,15 @@ final class NetworkEngine {
             }
             
         } catch {
+            // Check for device network connection error
+            if let networkError = error as? URLError {
+                if networkError.code == .notConnectedToInternet ||
+                    networkError.code == .dataNotAllowed {
+                    
+                    return .failure(NetworkError.connectionError)
+                }
+            }
+            
             return .failure(error)
         }
     }

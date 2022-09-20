@@ -11,26 +11,12 @@ struct BreedImagesView: View {
     @StateObject var presenter = BreedImagesPresenter(getBreedsUseCase: DefaultGetBreedsUseCase())
     @State var initialLoad: Bool = true
     
-    //Offline mode vars
-    @ObservedObject var monitor = NetworkMonitor()
-    @AppStorage("isOfflineMode") var isOfflineMode: Bool = false
-    @State private var isAlertPresenting = false
-    
     func onAppear() {
         // Helper conditional to prevent onAppear being called twice when using tab bar (https://openradar.appspot.com/FB8820127)
         if initialLoad == true {
             initialLoad.toggle()
-            
-            // Check network availability
-            if monitor.isConnected {
-                // Turn off offline mode and load initial data
-                isOfflineMode = false
-                Task {
-                    await presenter.getBreeds()
-                }
-                
-            } else {
-                isAlertPresenting = true
+            Task {
+                await presenter.getBreeds()
             }
         }
     }
@@ -83,11 +69,11 @@ struct BreedImagesView: View {
                 }
             })
             // Offline mode alert
-            .alert("You appear to be offline", isPresented: $isAlertPresenting, actions: {
+            .alert("You appear to be offline", isPresented: $presenter.isOfflineAlertPresenting, actions: {
                 Button("Cancel") {
                     // Try to load the data without offline mode
-                    isAlertPresenting.toggle()
-                    isOfflineMode = false
+                    presenter.isOfflineAlertPresenting.toggle()
+                    presenter.isOfflineMode = false
                     
                     Task {
                         await presenter.getBreeds()
@@ -96,15 +82,15 @@ struct BreedImagesView: View {
                 
                 Button("Offline mode") {
                     // Initiate offline mode and load data
-                    isAlertPresenting.toggle()
-                    isOfflineMode = true
+                    presenter.isOfflineAlertPresenting.toggle()
+                    presenter.isOfflineMode = true
                     
                     Task {
                         await presenter.getBreeds()
                     }
                 }
             }, message: {
-                Text("Would you like to continue with outdated data?")
+                Text("Would you like to continue with any available outdated data?")
             })
             // Navigation bar toolbar
             .toolbar {

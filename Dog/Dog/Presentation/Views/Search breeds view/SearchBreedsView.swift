@@ -53,6 +53,30 @@ struct SearchBreedsView: View {
                     await presenter.searchBreeds()
                 }
             }
+            // Offline mode alert
+            .alert("You appear to be offline", isPresented: $presenter.isOfflineAlertPresenting, actions: {
+                Button("Cancel") {
+                    // Try to load the data without offline mode
+                    presenter.isOfflineAlertPresenting.toggle()
+                    presenter.isOfflineMode = false
+                    
+                    Task {
+                        await presenter.searchBreeds()
+                    }
+                }
+                
+                Button("Offline mode") {
+                    // Initiate offline mode and load data
+                    presenter.isOfflineAlertPresenting.toggle()
+                    presenter.isOfflineMode = true
+                    
+                    Task {
+                        await presenter.searchBreeds()
+                    }
+                }
+            }, message: {
+                Text("Would you like to continue with any available outdated data?")
+            })
             
         } //:NavigationView
     }
