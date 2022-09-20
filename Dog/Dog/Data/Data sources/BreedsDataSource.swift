@@ -19,7 +19,7 @@ class DefaultBreedsDataSource: BreedsDataSource {
         // Initialize network configs with API key
         var networkConfigs = NetworkConfigs(baseURL: "https://api.thedogapi.com/v1")
         networkConfigs.headers = [
-            "x-api-key" : "API KEY HERE"
+            "x-api-key" : "live_UmCB5Y1ZIiD6jKKmB6w7XH565wy7udYT11TsrI9hP2XvKuEjy0Nc2n1LVmz4Gnwk" // this should be retrieved from the server
         ]
         
         networkEngine = NetworkEngine(networkConfig: networkConfigs)
