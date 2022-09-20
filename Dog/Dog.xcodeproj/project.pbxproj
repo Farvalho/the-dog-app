@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B0FC2BF28DA18510029CC1B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B0FC2BE28DA18510029CC1B /* Launch Screen.storyboard */; };
 		8B391DCE28D674D900F6F4D9 /* BreedDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B391DCD28D674D900F6F4D9 /* BreedDetailsView.swift */; };
 		8B391DD228D677FE00F6F4D9 /* BreedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B391DD128D677FE00F6F4D9 /* BreedAsyncImage.swift */; };
 		8B391DD428D67B0A00F6F4D9 /* BreedDetailFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B391DD328D67B0A00F6F4D9 /* BreedDetailFormRow.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B0FC2BE28DA18510029CC1B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8B391DCD28D674D900F6F4D9 /* BreedDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailsView.swift; sourceTree = "<group>"; };
 		8B391DD128D677FE00F6F4D9 /* BreedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedAsyncImage.swift; sourceTree = "<group>"; };
 		8B391DD328D67B0A00F6F4D9 /* BreedDetailFormRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailFormRow.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				8B3B254628D35510006C5591 /* Assets.xcassets */,
+				8B0FC2BE28DA18510029CC1B /* Launch Screen.storyboard */,
 				8B3B254828D35510006C5591 /* Preview Content */,
 			);
 			path = Resources;
@@ -476,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B3B254A28D35510006C5591 /* Preview Assets.xcassets in Resources */,
+				8B0FC2BF28DA18510029CC1B /* Launch Screen.storyboard in Resources */,
 				8B3B254728D35510006C5591 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,6 +700,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -725,6 +730,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

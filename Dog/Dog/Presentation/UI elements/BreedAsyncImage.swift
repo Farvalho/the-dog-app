@@ -10,7 +10,6 @@ import SwiftUI
 struct BreedAsyncImage: View {
     var imageLink: String?
     var dimensions: (width: CGFloat, height: CGFloat) = (width: 150, height: 150)
-    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         AsyncImage(url: URL(string: imageLink ?? ""),
@@ -20,7 +19,7 @@ struct BreedAsyncImage: View {
                 // Loading placeholder view
                 ProgressView()
                     .frame(width: dimensions.width, height: dimensions.height)
-                    .background(colorScheme == .dark ? .black : .white)
+                    .background(.indigo.opacity(0.15))
                     .cornerRadius(8)
                 
             case .failure:
